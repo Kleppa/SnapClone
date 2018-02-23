@@ -1,0 +1,40 @@
+<!--
+  Generated template for the RegisterPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>RegisterPage</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-col>
+      <ion-row>
+        <ion-label fixed> Username</ion-label>
+        <ion-input type="text" [(ngModel)]="user.username"></ion-input>
+      </ion-row>
+      <ion-row>
+        <ion-label fixed> Email</ion-label>
+        <ion-input type="email" [(ngModel)]="user.email"></ion-input>
+      </ion-row>
+      <ion-row>
+        <ion-label fixed> Password</ion-label>
+        <ion-input type="password" [(ngModel)] = user.password></ion-input>
+      </ion-row>
+      <ion-row>
+        <button ion-button block clear color="primary" (click)="login()">Log in </button>
+      </ion-row>
+      <ion-row>
+        <button block clear ion-button color="primary" (click)="registerUser()">Register </button>
+      </ion-row>
+    </ion-col>
+  </ion-grid>
+
+</ion-content>
