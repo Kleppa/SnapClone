@@ -30,13 +30,33 @@ export class RegisterPage {
   }
 
   registerUser() {
-    this.af.app.auth().createUserWithEmailAndPassword(this.user.email,this.user.password)
+    this.af.app.auth().createUserWithEmailAndPassword(this.user.email, this.user.password);
+    this.createAndPopulateDocument(this.user)
+    console.log(this.user)
   }
 
   login() {
     this.af.app.auth().signInWithEmailAndPassword(this.user.email, this.user.password)
   }
-  logout(){
-    this.af.app.auth().signOut();
+
+  createAndPopulateDocument(dataObj: any): Promise<any> {
+
+    return new Promise((resolve, reject) => {
+      this.af
+        .collection(`Users`)
+        .doc(`${this.user.username}`)
+        .set(
+          {
+            ...dataObj,
+
+          },
+          {merge: true})
+        .then((data: any) => {
+          resolve(data);
+        })
+        .catch((error: any) => {
+          reject(error);
+        });
+    });
   }
 }

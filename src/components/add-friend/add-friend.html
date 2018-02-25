@@ -1,12 +1,11 @@
 
 <div>
+
   <ion-item>
-    <ion-label fixed="">Todo</ion-label>
+
+    <ion-label floating>Username</ion-label>
     <ion-input type="text" [(ngModel)]="userToAdd.username" name="username"></ion-input>
   </ion-item>
-  <ion-item>
-    <ion-label fixed="">Description</ion-label>
-    <ion-textarea [(ngModel)]="todo.description" name="description"></ion-textarea>
-  </ion-item>
-  <button ion-button  block>Add friend</button>
+  <button ion-button  block (click)="findFriend()" >Add friend</button>
+
 </div>

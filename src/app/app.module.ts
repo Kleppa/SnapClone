@@ -13,11 +13,14 @@ import {AngularFireModule} from "angularfire2";
 import {AngularFireDatabase, AngularFireDatabaseModule} from 'angularfire2/database'
 import {ComponentsModule} from "../components/components.module";
 import {AddFriendComponent} from "../components/add-friend/add-friend";
+import {FriendSuggestionResultComponent} from "../components/friend-suggestion-result/friend-suggestion-result";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    AddFriendComponent,
+    FriendSuggestionResultComponent
 
   ],
   imports: [
@@ -32,12 +35,17 @@ import {AddFriendComponent} from "../components/add-friend/add-friend";
   entryComponents: [
     MyApp,
     HomePage,
+    FriendSuggestionResultComponent,
+    AddFriendComponent
 
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ComponentsModule,
+    AddFriendComponent,
+    FriendSuggestionResultComponent
   ]
 })
 export class AppModule {}

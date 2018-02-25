@@ -17,5 +17,16 @@
 </ion-header>
 
 <ion-content padding>
+
+  <div *ngIf="this.isLookingForFriend">
+
   <add-friend></add-friend>
+
+  </div>
+
+
+  <div *ngIf="this.foundFriends">
+    <friend-suggestion-result></friend-suggestion-result>
+
+  </div>
 </ion-content>
