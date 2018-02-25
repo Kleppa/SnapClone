@@ -33,7 +33,7 @@ export class HomePage {
       this.event.publish('friends',val);
     })
 
-    //why does this not show users from database
+    //Why does this crash the pull from database?
 
     this.event.subscribe('changeFoundBool',val=>{
       this.foundFriends=val;
