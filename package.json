@@ -39,7 +39,6 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.8",
-    "@types/ramda": "github:types/npm-ramda#dist",
     "typescript": "2.4.2"
   },
   "description": "An Ionic project",

@@ -21,7 +21,7 @@ import {NavController, NavParams} from "ionic-angular";
 })
 export class AddFriendComponent {
 
-  private userToAdd = {username: ""};
+  private userToAdd:string ='';
 
   friendDoc: Observable<User[]>;
   // @Output() emitter = new EventEmitter<Observable<User[]>>();
@@ -37,18 +37,17 @@ export class AddFriendComponent {
 
     this.friendDoc = this.findUsers();
 
-
-
     this.event.publish('changedBool',false);
-    //this.booleanEmitter.emit(false);
+
     this.event.publish('foundUsers',this.friendDoc);
 
 
-    // new FriendSuggestionResultComponent(this.userToAdd.username,this.af);
+
 
   }
 
   private findUsers() :Observable<User[]> {
+
     return this.af.collection<User>('Users')                // Spesifiserer at det er Firestore-kolleksjonen "posts" vi ønsker å hente data fra
       .snapshotChanges()                                // Henter ned data og lytter på endringer i Firestore-datasettet vårt
       .map(actions => {
@@ -57,12 +56,11 @@ export class AddFriendComponent {
           let id = action.payload.doc.id;
           // Henter ut postens ID (, ID generert av Firestore)
 
-             if (this.userToAdd.username == data.username) {
+
                return {
                  id,
                  ...data
                };
-             }
 
         });
       });

@@ -19,7 +19,7 @@ export class HomePage {
   foundFriends: boolean = false;
 
 
-  constructor(public navCtrl: NavController, private af: AngularFirestore, public event:Events) {
+  constructor( private af: AngularFirestore, public event:Events) {
     this.isLookingForFriend = false;
     this.user = this.af.app.auth().currentUser;
 
@@ -31,6 +31,12 @@ export class HomePage {
     this.event.subscribe('foundUsers',val=>{
       console.log("touched")
       this.event.publish('friends',val);
+    })
+
+    //why does this not show users from database
+
+    this.event.subscribe('changeFoundBool',val=>{
+      this.foundFriends=val;
     })
 
   }

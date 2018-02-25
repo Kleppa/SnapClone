@@ -16,20 +16,20 @@ import {Events, NavController, NavParams} from "ionic-angular"
   templateUrl: 'friend-suggestion-result.html'
 })
 export class FriendSuggestionResultComponent {
-
-
   friendDocs: Observable<User[]>;
-  isLookingForFriendFriendSugg: boolean;
-
 
 
   constructor(private af: AngularFirestore, private nav: NavParams,private event:Events) {
 
-    this.isLookingForFriendFriendSugg = false;
-
     this.event.subscribe('friends',data =>{
       console.log("Touched - FriendSuggestions")
+      //filter out any users without the correct username
       this.friendDocs=data;
+      this.friendDocs.map(value => {
+        value.filter(user=>{
+
+        })
+      })
 
     });
 
@@ -39,4 +39,9 @@ export class FriendSuggestionResultComponent {
   }
 
 
+  onClickExit() {
+
+
+    this.event.publish('changeFoundBool',false)
+  }
 }
